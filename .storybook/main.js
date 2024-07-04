@@ -10,7 +10,13 @@ const config = {
   ],
   framework: {
     name: "@storybook/react-vite",
-    options: {},
+    options: {
+      fastRefresh: true,
+    },
+    core: {
+      builder: 'storybook-builder-vite',
+    },
+    logLevel: 'debug',
   },
 };
 export default config;
