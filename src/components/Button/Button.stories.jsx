@@ -1,5 +1,6 @@
-import React from "react";
-import Button from "./Button";
+import React from "react"
+import Button from "./Button"
+import { fn } from '@storybook/test'
 
 export default {
     title: 'Components/Button',
@@ -7,32 +8,41 @@ export default {
     parameters: {
         layout: 'centered',
     },
-    args: {
+    tags: ['autodocs'],
+    argTypes: {
         children: 'Button',
-    }
+    },
+    args: { onClick: fn() },
 }
-
-export const Primary = () => <Button variant='primary'>Primary</Button>
-export const Secondary = () => <Button variant='secondary'>Secondary</Button>
-export const Success = () => <Button variant='success'>Success</Button>
-export const Danger = () => <Button variant='danger'>Danger</Button>
 
 const Template = args => <Button {...args} />
 
-export const PrimaryA = Template.bind({});
-PrimaryA.args = {
+export const Primary = Template.bind({});
+Primary.args = {
     variant: 'primary',
-    children: 'Primary Args'
+    children: 'Primary'
 }
 
-export const LongPrimaryA = Template.bind({})
-LongPrimaryA.args = {
-    ...PrimaryA.args,
-    children: 'Long Primary Args'
-}
+// export const LongPrimary = Template.bind({})
+// LongPrimary.args = {
+//     ...Primary.args,
+//     children: 'Long Primary'
+// }
 
-export const SecondaryA = Template.bind({})
-SecondaryA.args = {
+export const Secondary = Template.bind({})
+Secondary.args = {
     variant: 'secondary',
-    children: 'Secondary Args'
+    children: 'Secondary'
+}
+
+export const Success = Template.bind({})
+Success.args = {
+    variant: 'success',
+    children: 'Success'
+}
+
+export const Danger = Template.bind({})
+Danger.args = {
+    variant: 'danger',
+    children: 'Danger'
 }
